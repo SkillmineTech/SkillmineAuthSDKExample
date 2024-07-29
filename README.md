@@ -1,2 +1,2 @@
 ## SkillmineAuthSDKExample
-A Demo app demonstrating the consumption of SkillmineAuthSDK
+A Android app demonstrating the consumption of SkillmineAuthSDK
