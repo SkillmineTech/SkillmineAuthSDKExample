@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.skillmine.skillmineauthsdk_example.AuthenticationConstants.BASE_URL
 import com.skillmine.skillmineauthsdk_example.AuthenticationConstants.CLIENT_ID
 import com.skillmine.skillmineauthsdk_example.AuthenticationConstants.REDIRECT_URL
+import com.skillmine.skillmineauthsdk_example.DashBoardActivity
 import com.skillmine.webauthsdk.AuthenticationActivity
 
 class MainActivity : AppCompatActivity() {
