@@ -4,15 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.skillmine.skillmineauthsdk_example.AuthenticationConstants.BASE_URL
-import com.skillmine.skillmineauthsdk_example.AuthenticationConstants.CLIENT_ID
-import com.skillmine.skillmineauthsdk_example.AuthenticationConstants.REDIRECT_URL
-import com.skillmine.skillmineauthsdk_example.DashBoardActivity
+import com.skillmine.skillmineauthsdkexample.AuthenticationConstants.BASE_URL
+import com.skillmine.skillmineauthsdkexample.AuthenticationConstants.CLIENT_ID
+import com.skillmine.skillmineauthsdkexample.AuthenticationConstants.REDIRECT_URL
 import com.skillmine.webauthsdk.AuthenticationActivity
 
 class MainActivity : AppCompatActivity() {
@@ -44,9 +44,14 @@ class MainActivity : AppCompatActivity() {
 
         //Call WebAuth Library
         loginButton.setOnClickListener {
-            val intent =
-                AuthenticationActivity.createIntent(this, BASE_URL, CLIENT_ID, REDIRECT_URL)
-            authActivityResultLauncher.launch(intent)
+            if (BASE_URL.isEmpty() || CLIENT_ID.isEmpty() || REDIRECT_URL.isEmpty()) {
+                Toast.makeText(this, "Please mention BASE_URL,CLIENT_ID & REDIRECT_URL", Toast.LENGTH_SHORT).show()
+            }else{
+                val intent =
+                    AuthenticationActivity.createIntent(this, BASE_URL, CLIENT_ID, REDIRECT_URL)
+                authActivityResultLauncher.launch(intent)
+            }
+
 
         }
     }

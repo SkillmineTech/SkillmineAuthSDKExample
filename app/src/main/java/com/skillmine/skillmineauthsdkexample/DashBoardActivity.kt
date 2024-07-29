@@ -1,4 +1,4 @@
-package com.skillmine.skillmineauthsdk_example
+package com.skillmine.skillmineauthsdkexample
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

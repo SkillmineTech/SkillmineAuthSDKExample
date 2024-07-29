@@ -1,7 +1,7 @@
-package com.skillmine.skillmineauthsdk_example
+package com.skillmine.skillmineauthsdkexample
 
 object AuthenticationConstants {
-    const val BASE_URL = "base_url"
-    const val CLIENT_ID = "client_id"
-    const val REDIRECT_URL = "redirect_url"
+    const val BASE_URL = ""
+    const val CLIENT_ID = ""
+    const val REDIRECT_URL = ""
 }
