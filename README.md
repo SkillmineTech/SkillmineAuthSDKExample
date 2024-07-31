@@ -30,7 +30,7 @@ dependencyResolutionManagement {
 
 ```
 
-To use the AuthWeb library, add it to your project dependencies. Open your build.gradle file (Module: app) and add the following:
+To use the SkillmineAuthSDK library, add it to your project dependencies. Open your build.gradle file (Module: app) and add the following:
 
 ```gradle
 ## auth_web_version = "1.0.6"
@@ -40,10 +40,6 @@ implementation "com.github.SkillmineTech:SkillmineAuthSDK:${auth_web_version}
 Sync your project to download and include the dependency.
 
 ## Authentication Flow
-To initiate the authentication process, you can create an intent to open the Authentication Activity provided by the library. You can use an ActivityResultLauncher to handle the authentication process results.
-
-Define authActivityResultLauncher in the Activity
-Here, we want to open the Authentication Activity from LoginActivity.
 
 ```gradle
 // Define the BASE_URL and CLIENT_ID
@@ -51,17 +47,22 @@ const val BASE_URL = "base_url"
 const val CLIENT_ID = "client_id"
 const val REDIRECT_URL = "redirect_url"
 ```
-Call the createIntent function of the Library’s Authentication Activity:
-```loginButton.setOnClickListener {
+To initiate the authentication process, you can create an intent to open the Authentication Activity provided by the library. 
+```
+loginButton.setOnClickListener {
     val intent =
                 AuthenticationActivity.createIntent(this, BASE_URL, CLIENT_ID, REDIRECT_URL)
             authActivityResultLauncher.launch(intent)
 }
 ```
+You can use an ActivityResultLauncher to handle the authentication process results.
 
+Define authActivityResultLauncher in the Activity
+Here, we want to open the Authentication Activity from LoginActivity.
 Initialize the authActivityResultLauncher:
 
-```val authActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+```
+val authActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
     if (result.resultCode == Activity.RESULT_OK) {
         val data: Intent? = result.data
         // Handle the result here
@@ -70,6 +71,7 @@ Initialize the authActivityResultLauncher:
     }
 }
 ```
+
 
 Please refer to integrate the SkillmineAuthSDK:
 https://github.com/SkillmineTech/SkillmineAuthSDK/blob/master/README.md
